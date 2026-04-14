@@ -824,14 +824,18 @@ MonoBehaviour:
   gravity: -9.81
   health: 0
   maxHealth: 0
-  detectionRange: 5
+  detectionRange: 15
   basicBullet: {fileID: 9144540947625501814, guid: 91c836e98f5770944898ba65bceacba5, type: 3}
   bulletDamage: 5
-  bulletSpeed: 10
+  bulletSpeed: 30
   bulletTurnSpeed: 2
   firePoint: {fileID: 35481755}
+  magSize: 5
+  fireRate: 1
+  reloadTime: 1.5
   target: {fileID: 0}
   meshRot: {fileID: 95325806}
+  isDashing: 0
   rotationLerpSpeed: 5
 --- !u!4 &1167000174
 Transform:
@@ -1038,14 +1042,18 @@ MonoBehaviour:
   gravity: -9.81
   health: 0
   maxHealth: 0
-  detectionRange: 5
+  detectionRange: 15
   basicBullet: {fileID: 9144540947625501814, guid: 91c836e98f5770944898ba65bceacba5, type: 3}
   bulletDamage: 5
-  bulletSpeed: 10
+  bulletSpeed: 30
   bulletTurnSpeed: 2
   firePoint: {fileID: 1947902186}
+  magSize: 5
+  fireRate: 1
+  reloadTime: 1.5
   target: {fileID: 0}
   meshRot: {fileID: 978588299}
+  isDashing: 0
   rotationLerpSpeed: 5
 --- !u!4 &2027666356
 Transform:
@@ -1111,7 +1119,7 @@ GameObject:
   - component: {fileID: 697480368421037055}
   - component: {fileID: 5475977128882106360}
   - component: {fileID: 9085879835548176665}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1188,7 +1196,7 @@ GameObject:
   - component: {fileID: 3236166619205420573}
   - component: {fileID: 9194509241617791035}
   - component: {fileID: 9194509241617791036}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1519,7 +1527,7 @@ GameObject:
   - component: {fileID: 5934392626563812628}
   - component: {fileID: 4405265079376306496}
   - component: {fileID: 5934392626563812629}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1674,7 +1682,7 @@ GameObject:
   - component: {fileID: 6961137702458322373}
   - component: {fileID: 1853465080872882071}
   - component: {fileID: 6961137702458322374}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1851,7 +1859,7 @@ GameObject:
   - component: {fileID: 4714117831353860145}
   - component: {fileID: 6802197520482621670}
   - component: {fileID: 6802197520482621671}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1970,7 +1978,7 @@ GameObject:
   - component: {fileID: 5037973432372806694}
   - component: {fileID: 7562988006070004601}
   - component: {fileID: 7562988006070004602}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2122,7 +2130,7 @@ GameObject:
   - component: {fileID: 2857282168010451769}
   - component: {fileID: 3570003195761422026}
   - component: {fileID: 2493095705173475618}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WallRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
