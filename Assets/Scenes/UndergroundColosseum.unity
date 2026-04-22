@@ -287,10 +287,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   uiManager: {fileID: 110621321}
-  player1: {fileID: 0}
-  player1Health: 0
-  player2: {fileID: 0}
-  player2Health: 0
+  player1: {fileID: 2027666352}
+  player1Health: 20
+  player2: {fileID: 1167000170}
+  player2Health: 20
 --- !u!114 &110621321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1111,6 +1111,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 727824631}
   m_CullTransparentMesh: 1
+--- !u!1 &745490463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 745490465}
+  - component: {fileID: 745490464}
+  m_Layer: 0
+  m_Name: SkillPickupSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &745490464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745490463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d1b10eb534333c469bb52ce2921da6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillPickupSpawner
+  skillPickupPrefab: {fileID: 2636304670874007179, guid: 66ce5185eabd94f4785d42295b51f4ff, type: 3}
+  mapMinX: -20
+  mapMaxX: 20
+  mapMinZ: -20
+  mapMaxZ: 20
+  spawnY: 1
+  pickupLifetime: 5
+--- !u!4 &745490465
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745490463}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.65069, y: 0.92426, z: -1.80538}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1890,6 +1941,7 @@ GameObject:
   - component: {fileID: 1167000173}
   - component: {fileID: 1167000172}
   - component: {fileID: 1167000171}
+  - component: {fileID: 1167000175}
   m_Layer: 7
   m_Name: MechTest (1)
   m_TagString: Untagged
@@ -1995,6 +2047,21 @@ Transform:
   - {fileID: 95325806}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1167000175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167000170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70c55b559baa914eb3f18e2091d0311, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillSystem
+  assignedSkill: 0
+  skillDuration: 5
+  skillCooldown: 10
 --- !u!1 &1221240598
 GameObject:
   m_ObjectHideFlags: 0
@@ -2727,6 +2794,7 @@ GameObject:
   - component: {fileID: 2027666355}
   - component: {fileID: 2027666354}
   - component: {fileID: 2027666357}
+  - component: {fileID: 2027666358}
   m_Layer: 6
   m_Name: MechTest
   m_TagString: Untagged
@@ -2803,7 +2871,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2027666352}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -6.07, y: 1.61, z: -14.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2832,6 +2900,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2027666358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027666352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70c55b559baa914eb3f18e2091d0311, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillSystem
+  assignedSkill: 0
+  skillDuration: 5
+  skillCooldown: 10
 --- !u!4 &393777075722888088
 Transform:
   m_ObjectHideFlags: 0
@@ -4013,3 +4096,4 @@ SceneRoots:
   - {fileID: 110621319}
   - {fileID: 369996509}
   - {fileID: 941457296}
+  - {fileID: 745490465}

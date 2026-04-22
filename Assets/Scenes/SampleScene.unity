@@ -1158,8 +1158,8 @@ MonoBehaviour:
   dashCounts: 0
   maxDashCounts: 3
   gravity: -9.81
-  health: 0
-  maxHealth: 0
+  health: 20
+  maxHealth: 20
   detectionRange: 10
   basicBullet: {fileID: 9144540947625501814, guid: 91c836e98f5770944898ba65bceacba5, type: 3}
   bulletDamage: 5
@@ -1169,7 +1169,7 @@ MonoBehaviour:
   magSize: 5
   fireRate: 1
   reloadTime: 2
-  target: {fileID: 0}
+  target: {fileID: 2027666356}
   meshRot: {fileID: 95325806}
   isDashing: 0
   rotationLerpSpeed: 5
@@ -1600,8 +1600,8 @@ MonoBehaviour:
   dashCounts: 0
   maxDashCounts: 3
   gravity: -9.81
-  health: 0
-  maxHealth: 0
+  health: 20
+  maxHealth: 20
   detectionRange: 10
   basicBullet: {fileID: 9144540947625501814, guid: 91c836e98f5770944898ba65bceacba5, type: 3}
   bulletDamage: 5
@@ -1611,7 +1611,7 @@ MonoBehaviour:
   magSize: 5
   fireRate: 1
   reloadTime: 2
-  target: {fileID: 0}
+  target: {fileID: 1167000174}
   meshRot: {fileID: 978588299}
   isDashing: 0
   rotationLerpSpeed: 5
