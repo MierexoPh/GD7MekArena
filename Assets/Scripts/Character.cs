@@ -1,4 +1,5 @@
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,6 +15,7 @@ public abstract class Character : MonoBehaviour, IMovement
     [SerializeField] float dashCounts;
     [SerializeField] float maxDashCounts;
     [SerializeField] float gravity = -9.81f;
+    [SerializeField] float knockbackDecay = 4f;
 
     [Header("Mech Stat")]
     [SerializeField] public float health;
@@ -33,6 +35,7 @@ public abstract class Character : MonoBehaviour, IMovement
     [SerializeField]Transform target;
     [SerializeField]Transform meshRot;
 
+    Vector3 knockbackVelocity;
     CharacterController controller;
     Vector3 playerVelocity;
     float dashTimer = 0f;
@@ -120,6 +123,14 @@ public abstract class Character : MonoBehaviour, IMovement
         }
     }
 
+    public void ApplyKnockBack(Vector3 hitSource, float force)
+    {
+        Vector3 knockbackDirection = (transform.position - hitSource).normalized;
+        knockbackDirection.y = 0f; // Ensure knockback is horizontal
+
+        knockbackVelocity += knockbackDirection * force;
+    }   
+
     public void TakeDamage(float damage)//hit method
     {
         health -= damage;
@@ -176,7 +187,7 @@ public abstract class Character : MonoBehaviour, IMovement
         }
         else{
             bulletScript.SetTarget(null, bulletDamage, bulletSpeed, bulletTurnSpeed);
-            basicBullet.transform.forward = lastFacingDirection;
+            basicbullet.transform.forward = lastFacingDirection;
         }
         currentMagSize--;
         fireRateTimer = 0f;
@@ -192,9 +203,14 @@ public abstract class Character : MonoBehaviour, IMovement
         }
         playerVelocity.y += gravity * Time.deltaTime;//gravity
         move = transform.right * xInp + transform.forward * zInp;
-        Vector3 direction = move + Vector3.up * playerVelocity.y;//final move
-        
-        if(target != null) 
+        Vector3 moveVelocity = move * speed;
+        Vector3 finalVelocity = moveVelocity + knockbackVelocity + Vector3.up * playerVelocity.y;
+
+        controller.Move(finalVelocity * Time.deltaTime);
+
+
+
+        if (target != null) 
         {
             lastFacingDirection = (target.position - transform.position).normalized;
         }
@@ -203,6 +219,8 @@ public abstract class Character : MonoBehaviour, IMovement
             lastFacingDirection = move;
         }
         
+        knockbackVelocity = Vector3.Lerp (knockbackVelocity, Vector3.zero, knockbackDecay * Time.deltaTime);//knockback decay
+
         meshRot.rotation = Quaternion.Lerp(meshRot.rotation, Quaternion.LookRotation(lastFacingDirection), Time.deltaTime * rotationLerpSpeed);//rotate mesh to move direction with lerp
         
         if(isDashInput)//dash input
@@ -210,7 +228,7 @@ public abstract class Character : MonoBehaviour, IMovement
             if(dashCounts>0)
             {
                 --dashCounts;
-                Dash(direction);
+                Dash(move);
             }
         }
 
@@ -229,10 +247,6 @@ public abstract class Character : MonoBehaviour, IMovement
             float t = Mathf.Clamp01(dashTimer / dashDuration);
             controller.Move(Vector3.Lerp(Vector3.zero, dashDirection * dashSpeed * Time.deltaTime, t));
             isDashing = dashTimer < dashDuration;
-        }
-        else
-        {
-            Move(direction);
         }
     }
 
