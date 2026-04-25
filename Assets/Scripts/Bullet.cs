@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public float knockbackForce = 10f;
     public float lifeTime = 5;
     private Vector3 direction;
     private float damage;
@@ -54,9 +55,11 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Character character = other.GetComponent<Character>();
-        if(character != null && character.isDashing == false)
+        if (character != null && character.isDashing == false)
         {
             character.TakeDamage(damage);
+
+            character.ApplyKnockBack(transform.position, knockbackForce);
             Destroy(gameObject);
         }
     }
