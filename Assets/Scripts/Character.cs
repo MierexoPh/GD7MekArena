@@ -125,6 +125,13 @@ public abstract class Character : MonoBehaviour, IMovement
         health -= damage;
     }
 
+    public void Heal(float amount)
+{
+    health += amount;
+    health = Mathf.Clamp(health, 0, maxHealth);
+}
+
+
     public void targetDetection(){//target detection method
 
         if(!isPlayer2)//player1

@@ -1944,7 +1944,7 @@ GameObject:
   - component: {fileID: 1167000175}
   m_Layer: 7
   m_Name: MechTest (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2183,6 +2183,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1221240598}
   m_CullTransparentMesh: 1
+--- !u!1 &1255613516
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1255613518}
+  - component: {fileID: 1255613517}
+  m_Layer: 0
+  m_Name: HealingZoneSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1255613517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255613516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efeabb88ef11d174b8bb34e923349b09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealingZoneSpawner
+  healingZonePrefab: {fileID: 2735433636780285018, guid: 4d596ad70f8f6ba4f9562c41ff788192, type: 3}
+  spawnCenter: {x: 0, y: 0, z: 0}
+  spawnRadius: 10
+  spawnInterval: 10
+--- !u!4 &1255613518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255613516}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.80625, y: 0.92426, z: -1.41204}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1316546000
 GameObject:
   m_ObjectHideFlags: 0
@@ -2797,7 +2845,7 @@ GameObject:
   - component: {fileID: 2027666358}
   m_Layer: 6
   m_Name: MechTest
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4097,3 +4145,4 @@ SceneRoots:
   - {fileID: 369996509}
   - {fileID: 941457296}
   - {fileID: 745490465}
+  - {fileID: 1255613518}
